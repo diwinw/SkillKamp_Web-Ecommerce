@@ -26,20 +26,20 @@ public class Product {
     private int stock;
 
     @NotNull
-    private int category;
+    private String category_id;
 
     @NotBlank
     private String image;
 
 
-    private String createdDate;
+    private String created_date;
 
     @NotBlank
-    private String createdBy;
+    private String created_by;
 
 
-    private String updatedDate;
+    private String updated_date;
 
     @NotBlank
-    private String updatedBy;
+    private String updated_by;
 }
