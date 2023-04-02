@@ -25,7 +25,6 @@ public class ProductController {
     public List<Product> getProductsId(@PathVariable String id) throws JsonProcessingException {
         return productService.getProductById(id);
     }
-
     @GetMapping("/filter/{filter}")
     public List<Product> getProductsFilter(@PathVariable String filter) throws JsonProcessingException {
         return productService.getProductByFilter(filter);
