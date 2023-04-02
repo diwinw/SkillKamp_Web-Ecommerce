@@ -12,4 +12,4 @@ CREATE TABLE ecommerce.user (
 
 
 INSERT INTO ecommerce.user (first_name, last_name, email, password, phone, address)
-VALUES ('John', 'Doe', 'test@example.com', 'test', '555-5555', '123 Main St');
+VALUES ('John', 'Doe', 'dew', 'dew', '555-5555', '123 Main St');
