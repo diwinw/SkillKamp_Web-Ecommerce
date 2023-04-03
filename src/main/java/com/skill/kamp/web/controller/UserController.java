@@ -1,6 +1,7 @@
 package com.skill.kamp.web.controller;
 
 import com.skill.kamp.web.config.JwtUtil;
+import com.skill.kamp.web.model.LoginModel;
 import com.skill.kamp.web.model.UserModel;
 import com.skill.kamp.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -34,11 +38,12 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody UserModel signupRequest) {
+    public ResponseEntity<?> login(@RequestBody LoginModel signupRequest) {
         if(signupRequest.getEmail()!=null
                 && signupRequest .getPassword()!= null
                 && userRepository.checkUserLogin(signupRequest.getEmail(),signupRequest.getPassword())==1) {
             final String token = jwtUtil.generateToken(signupRequest.getEmail());
+            jwtUtil.putToken(token, new HashMap<>());
             return ResponseEntity.ok(token);
         }else{
             return new ResponseEntity("login fail",
