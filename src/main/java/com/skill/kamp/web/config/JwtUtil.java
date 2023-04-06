@@ -80,7 +80,8 @@ public class JwtUtil {
     public  Map<String,String> updateToken(String token,Map<String,String> map){
         if(map.size()>0){
             Map<String , String> list = listToken.get(token);
-            map.forEach((k, v) -> list.merge(k, v, (oldValue, newValue) -> oldValue));
+//            map.forEach((k, v) -> list.merge(k, v, (oldValue, newValue) -> oldValue));
+            list.putAll(map);
             listToken.put(token ,list) ;
         }
         return listToken.get(token);

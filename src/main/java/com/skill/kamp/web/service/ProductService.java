@@ -23,10 +23,10 @@ public class ProductService {
         return productList;
     }
 
-    public List<Product> getProductById(String id) throws JsonProcessingException {
+    public Product getProductById(String id) throws JsonProcessingException {
         String productJson = productRepository.getProductById(id);
         productList = objectMapper.readValue(productJson, new TypeReference<List<Product>>() {});
-        return productList;
+        return productList.get(0);
     }
 
 
